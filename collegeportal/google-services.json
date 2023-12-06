@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "277708429425",
+    "project_id": "alumni-connect-44475",
+    "storage_bucket": "alumni-connect-44475.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:277708429425:android:a0a051f1dca2ca40ac63d0",
+        "android_client_info": {
+          "package_name": "com.example.alumniconnect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8lbFPq1ot6rBVefN1qneYdGAS43r2uU0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:277708429425:android:6f87efc60d13f489ac63d0",
+        "android_client_info": {
+          "package_name": "com.example.collegeportal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8lbFPq1ot6rBVefN1qneYdGAS43r2uU0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:277708429425:android:5c8011a83031146bac63d0",
+        "android_client_info": {
+          "package_name": "com.example.studentportal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8lbFPq1ot6rBVefN1qneYdGAS43r2uU0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
