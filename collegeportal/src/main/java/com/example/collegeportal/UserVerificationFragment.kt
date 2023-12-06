@@ -1,6 +1,7 @@
 package com.example.collegeportal
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -20,17 +21,18 @@ class UserVerificationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view =  inflater.inflate(R.layout.fragment_user_verification, container, false)
+        return inflater.inflate(R.layout.fragment_user_verification, container, false)
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initView()
         setValuesToViews()
-
         btnVerify.setOnClickListener {
-            Toast.makeText(context,"User Verified",Toast.LENGTH_SHORT).show()
+            Log.d("UserVerificationFragment", "onButtonClicked")
+            Toast.makeText(context, "User Verified", Toast.LENGTH_SHORT).show()
             navigateToFragment(parentFragmentManager, UsersFragment())
         }
-
-        return view
     }
 
     fun navigateToFragment(fragmentManager: FragmentManager, fragment: Fragment, addToBackStack: Boolean = true) {
@@ -43,7 +45,7 @@ class UserVerificationFragment : Fragment() {
     }
 
     private fun initView() {
-
+        tvName = view?.findViewById(R.id.tvName)!!
         tvEmail = view?.findViewById(R.id.tvEmail)!!
         tvMobile = view?.findViewById(R.id.tvMobile)!!
         btnVerify = view?.findViewById(R.id.btnVerify)!!

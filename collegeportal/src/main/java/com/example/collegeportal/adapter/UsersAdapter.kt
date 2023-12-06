@@ -30,8 +30,7 @@ class UsersAdapter(private val users: ArrayList<Users>):
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val currentItem = users[position]
-            holder.tvUsers.text = currentItem.name
-            Log.d("UsersAdapter", "onBindViewHolder: ${currentItem.name}")
+            holder.tvUsersName.text = currentItem.name
         }
 
         override fun getItemCount(): Int {
@@ -39,7 +38,7 @@ class UsersAdapter(private val users: ArrayList<Users>):
         }
 
     class ViewHolder(itemView: View, listener: onItemClickListener) : RecyclerView.ViewHolder(itemView) {
-        val tvUsers: TextView = itemView.findViewById(R.id.tvUsers)
+        val tvUsersName: TextView = itemView.findViewById(R.id.tvUsersName)
 
         init {
             itemView.setOnClickListener {

@@ -149,11 +149,14 @@ class StudentRegistrationActivity : AppCompatActivity() {
             return
         }
         val studentID = dbRef.push().key!!
-        val users = Users(name, email, mobile)
+        val users = Users(studentID, name, email, mobile)
 
         dbRef.child(studentID).setValue(users)
             .addOnCompleteListener {
                 Toast.makeText(this@StudentRegistrationActivity, "Data saved successfully", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { err ->
+                Toast.makeText(this@StudentRegistrationActivity, "Error saving data: ${err.message}", Toast.LENGTH_SHORT).show()
             }
     }
 }

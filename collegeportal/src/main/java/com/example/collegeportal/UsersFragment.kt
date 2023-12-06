@@ -36,7 +36,6 @@ class UsersFragment : Fragment() {
         usersRecyclerView.setHasFixedSize(true)
         tvUsers = view.findViewById(R.id.tvUsers)
         usersList = arrayListOf<Users>()
-        Log.d("UsersFragment", "onCreateView: ")
         getUsersData()
         return view
     }
@@ -48,22 +47,17 @@ class UsersFragment : Fragment() {
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 usersList.clear()
-                Log.d("UsersFragment", "onDataChange: ${snapshot}")
                 if (snapshot.exists()) {
-                    Log.d("UsersFragment", "onDataChange: ${snapshot.children}")
                     for (userSnapshot in snapshot.children) {
                         val user = userSnapshot.getValue(Users::class.java)
                         usersList.add(user!!)
-                        Log.d("UsersFragment", "onDataChange: ${user.name}")
                     }
-                    Log.d("UsersFragment", "onDataChange: ${usersList}")
                     val mAdapter = UsersAdapter(usersList)
                     usersRecyclerView.adapter = mAdapter
-                    Log.d("UsersFragment", "onAdapter: ${mAdapter}")
+
                     mAdapter.setOnItemClickListener(object : UsersAdapter.onItemClickListener {
                         override fun onItemClick(position: Int) {
-                            Log.d("UsersFragment", "onItemClick: ${position}")
-                            val fragment = UserVerificationFragment().apply {
+                                val fragment = UserVerificationFragment().apply {
                                 arguments = Bundle().apply {
                                     putString("name", usersList[position].name)
                                     putString("email", usersList[position].email)
