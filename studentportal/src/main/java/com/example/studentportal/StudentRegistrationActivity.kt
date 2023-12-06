@@ -149,7 +149,7 @@ class StudentRegistrationActivity : AppCompatActivity() {
             return
         }
         val studentID = dbRef.push().key!!
-        val users = Users(studentID, name, email, mobile)
+        val users = Users(name, email, mobile)
 
         dbRef.child(studentID).setValue(users)
             .addOnCompleteListener {
