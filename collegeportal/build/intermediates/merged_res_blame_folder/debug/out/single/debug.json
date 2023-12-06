@@ -1,0 +1,126 @@
+[
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\drawable_ic_event.png.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\drawable\\ic_event.png"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\layout_fragment_college_events.xml.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\layout\\fragment_college_events.xml"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\menu_college_bottom_nav.xml.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\menu\\college_bottom_nav.xml"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\drawable_ic_launcher_background.xml.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\layout_fragment_users.xml.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\layout\\fragment_users.xml"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\layout_activity_main.xml.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\drawable_ic_message.png.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\drawable\\ic_message.png"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\layout_users_list_item.xml.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\layout\\users_list_item.xml"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\drawable_ic_home.xml.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\drawable\\ic_home.xml"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\layout_fragment_college_home.xml.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\layout\\fragment_college_home.xml"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\layout_fragment_college_fund.xml.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\layout\\fragment_college_fund.xml"
+    },
+    {
+        "merged": "com.example.collegeportal-merged_res-5:/layout_fragment_user_verification.xml.flat",
+        "source": "com.example.collegeportal-main-7:/layout/fragment_user_verification.xml"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\layout_activity_college_dashboard.xml.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\layout\\activity_college_dashboard.xml"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\drawable_ic_users.png.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\drawable\\ic_users.png"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\drawable_ic_fund.png.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\drawable\\ic_fund.png"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\layout_fragment_college_message.xml.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\layout\\fragment_college_message.xml"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\layout_activity_college_login.xml.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\layout\\activity_college_login.xml"
+    },
+    {
+        "merged": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-merged_res-5:\\layout_fragment_user_verification.xml.flat",
+        "source": "D:\\Android\\plugins\\gradle\\daemon\\8.2\\com.example.collegeportal-main-7:\\layout\\fragment_user_verification.xml"
+    }
+]

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">Alumni Connect Student Portal</string>
+    <string name="firebase_database_url" translatable="false">https://alumni-connect-44475-default-rtdb.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">277708429425</string>
+    <string name="google_api_key" translatable="false">AIzaSyA8lbFPq1ot6rBVefN1qneYdGAS43r2uU0</string>
+    <string name="google_app_id" translatable="false">1:277708429425:android:252c914b60ca886aac63d0</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyA8lbFPq1ot6rBVefN1qneYdGAS43r2uU0</string>
+    <string name="google_storage_bucket" translatable="false">alumni-connect-44475.appspot.com</string>
+    <string name="project_id" translatable="false">alumni-connect-44475</string>
+    <style name="Base.Theme.AlumniConnect" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.AlumniConnect" parent="Base.Theme.AlumniConnect"/>
+</resources>
