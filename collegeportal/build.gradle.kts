@@ -2,11 +2,13 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
+    kotlin("kapt")
 }
 
 android {
     namespace = "com.example.collegeportal"
     compileSdk = 34
+
 
     defaultConfig {
         applicationId = "com.example.collegeportal"
@@ -47,6 +49,22 @@ dependencies {
     implementation("com.google.firebase:firebase-database:20.3.0")
     implementation("com.google.firebase:firebase-database-ktx:20.3.0")
     implementation("com.google.firebase:firebase-firestore:24.9.1")
+    implementation("com.firebaseui:firebase-ui-database:8.0.0")
+
+
+    //Anko
+    implementation("org.jetbrains.anko:anko:0.10.8")
+    implementation("org.jetbrains.anko:anko-design:0.10.8")
+    implementation("org.jetbrains.anko:anko-coroutines:0.10.8")
+    implementation("com.google.firebase:firebase-inappmessaging-display:20.4.0")
+    implementation("com.google.firebase:firebase-storage:20.3.0")
+    implementation("com.google.firebase:firebase-messaging:23.4.0")
+
+    //Glide
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    implementation("androidx.compose.foundation:foundation-layout-android:1.5.4")
+    kapt("com.github.bumptech.glide:compiler:4.12.0")
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

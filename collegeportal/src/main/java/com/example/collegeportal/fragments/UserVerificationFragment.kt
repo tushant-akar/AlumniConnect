@@ -1,4 +1,4 @@
-package com.example.collegeportal
+package com.example.collegeportal.fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -10,12 +10,16 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.FragmentManager
+import com.example.collegeportal.R
+import com.example.collegeportal.data.Users
 
 class UserVerificationFragment : Fragment() {
     private lateinit var tvName: TextView
     private lateinit var tvEmail: TextView
     private lateinit var tvMobile: TextView
     private lateinit var btnVerify: Button
+    private lateinit var users: Users
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,6 +35,8 @@ class UserVerificationFragment : Fragment() {
         btnVerify.setOnClickListener {
             Log.d("UserVerificationFragment", "onButtonClicked")
             Toast.makeText(context, "User Verified", Toast.LENGTH_SHORT).show()
+            // Set isVerified to true in the Users object
+            users.isVerified = true
             navigateToFragment(parentFragmentManager, UsersFragment())
         }
     }
@@ -55,6 +61,12 @@ class UserVerificationFragment : Fragment() {
         val name = arguments?.getString("name")
         val email = arguments?.getString("email")
         val mobile = arguments?.getString("mobile")
+        val isStudent = arguments?.getBoolean("isStudent") ?: true
+        val isAlumni = arguments?.getBoolean("isAlumni") ?: false
+        val isVerified = arguments?.getBoolean("isVerified") ?: false
+
+        // Initialize the Users object with the new data
+        users = Users(name, email, mobile, isStudent, isAlumni, isVerified)
 
         tvName.text = name
         tvEmail.text = email

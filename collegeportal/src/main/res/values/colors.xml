@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="unread_count">#404b69</color>
+    <color name="Green1">#235347</color>
+    <color name="Green2">#48a44c</color>
+    <color name="GREY">#707070</color>
+    <color name="theme_color">#2176FF</color>
+    <color name="theme_color_8">#142176FF</color>
+    <color name="colorPrimary">#0F9D58</color>
+    <color name="colorPrimaryDark">#056008</color>
+    <color name="colorAccent">#E39D36</color>
+    <color name="chatMsgReceiver">#7CB342</color>
+    <color name="chatMsgSender">#1E88E5</color>
 </resources>

@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.collegeportal.data.Users
 import com.google.firebase.auth.FirebaseAuth
 
 class CollegeLoginActivity : AppCompatActivity() {
@@ -14,6 +15,7 @@ class CollegeLoginActivity : AppCompatActivity() {
     lateinit var btnLogin: Button
 
     lateinit var auth: FirebaseAuth
+    lateinit var users: Users
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,11 @@ class CollegeLoginActivity : AppCompatActivity() {
 
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show()
+                return
+            }
+
+            if (users.isStudent) {
+                Toast.makeText(this, "Please login with valid ID", Toast.LENGTH_SHORT).show()
                 return
             }
 

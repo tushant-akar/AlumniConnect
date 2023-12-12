@@ -5,6 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import com.example.collegeportal.fragments.CollegeEventsFragment
+import com.example.collegeportal.fragments.CollegeFundFragment
+import com.example.collegeportal.fragments.CollegeHomeFragment
+import com.example.collegeportal.fragments.message.CollegeMessageFragment
+import com.example.collegeportal.fragments.UsersFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class CollegeDashboardActivity : AppCompatActivity() {
