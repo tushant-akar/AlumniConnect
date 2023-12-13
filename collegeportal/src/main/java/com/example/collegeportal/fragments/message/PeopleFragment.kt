@@ -14,12 +14,12 @@ import com.example.collegeportal.util.FirebaseUtil
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.Query
 
 class PeopleFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: RecentChatRecyclerAdapter
-    private lateinit var databaseReference: DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,11 +32,10 @@ class PeopleFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        val currentUserEmail = FirebaseUtil.currentUserEmail()
-        databaseReference = FirebaseDatabase.getInstance().getReference("Chatrooms")
-        val query = databaseReference.orderByChild("userIds/$currentUserEmail").equalTo(true)
+        val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().getReference("chatrooms")
+        val query: Query = databaseReference.orderByChild("userIds/" + FirebaseUtil.currentUserId()).equalTo(true)
 
-        val options = FirebaseRecyclerOptions.Builder<Chatroom>()
+        val options: FirebaseRecyclerOptions<Chatroom> = FirebaseRecyclerOptions.Builder<Chatroom>()
             .setQuery(query, Chatroom::class.java)
             .build()
 

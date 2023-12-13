@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.collegeportal.R
 import com.example.collegeportal.adapter.ChatRecyclerAdapter
-import com.example.collegeportal.adapter.SearchUserRecyclerAdapter
 import com.example.collegeportal.data.ChatMessage
 import com.example.collegeportal.data.Chatroom
 import com.example.collegeportal.data.Users
@@ -23,7 +22,6 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.Query
 import com.google.firebase.database.ValueEventListener
 import java.sql.Timestamp
 
@@ -50,8 +48,8 @@ class ChatFragment(private val selectedUser: Users = Users()) : Fragment() {
         val view = inflater.inflate(R.layout.fragment_chat, container, false)
 
         chatroomId = FirebaseUtil.getChatroomId(
-            FirebaseUtil.currentUserEmail()!!,
-            selectedUser.email!!
+            FirebaseUtil.currentUserId()!!,
+            selectedUser.userId!!
         )
         messageInput = view.findViewById(R.id.msg_input)
         sendButton = view.findViewById(R.id.msg_send_btn)
@@ -111,12 +109,13 @@ class ChatFragment(private val selectedUser: Users = Users()) : Fragment() {
 
 
     fun sendMessageToUser(message: String) {
-        chatroomModel.lastMessageSenderEmail = FirebaseUtil.currentUserEmail()
+        chatroomModel.lastMessageSenderId = FirebaseUtil.currentUserId()
         chatroomReference.setValue(chatroomModel)
 
+        val timestamp = Timestamp(System.currentTimeMillis())
         // Create a ChatMessageModel
         val chatMessageModel =
-            ChatMessage(message, FirebaseUtil.currentUserEmail(), System.currentTimeMillis())
+            ChatMessage(message, FirebaseUtil.currentUserId(), timestamp)
 
         // Add the message to the chatroom's message list
         FirebaseUtil.getChatroomMessageReference(chatroomId).push().setValue(chatMessageModel)
@@ -136,14 +135,14 @@ class ChatFragment(private val selectedUser: Users = Users()) : Fragment() {
                     val chatroomData = dataSnapshot.getValue(Chatroom::class.java)
                     chatroomModel = chatroomData ?: Chatroom(
                         chatroomId,
-                        listOf(FirebaseUtil.currentUserEmail()!!, selectedUser.email!!),
+                        listOf(FirebaseUtil.currentUserId()!!, selectedUser.email!!),
                         null
                     )
                 } else {
                     // Chatroom does not exist, create a new one
                     chatroomModel = Chatroom(
                         chatroomId,
-                        listOf(FirebaseUtil.currentUserEmail()!!, selectedUser.email!!),
+                        listOf(FirebaseUtil.currentUserId()!!, selectedUser.email!!),
                         null
                     )
                     chatroomReference.setValue(chatroomModel)

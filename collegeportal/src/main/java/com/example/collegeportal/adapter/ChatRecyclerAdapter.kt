@@ -22,8 +22,7 @@ class ChatRecyclerAdapter(options: FirebaseRecyclerOptions<ChatMessage>, private
     FirebaseRecyclerAdapter<ChatMessage, ChatRecyclerAdapter.ChatModelViewHolder>(options) {
 
     override fun onBindViewHolder(holder: ChatModelViewHolder, position: Int, model: ChatMessage) {
-        Log.i("haushd", "asjd")
-        if (model.senderEmail == FirebaseUtil.currentUserEmail()) {
+        if (model.senderId == FirebaseUtil.currentUserId()) {
             holder.leftChatLayout.visibility = View.GONE
             holder.rightChatLayout.visibility = View.VISIBLE
             holder.rightChatTextview.text = model.message

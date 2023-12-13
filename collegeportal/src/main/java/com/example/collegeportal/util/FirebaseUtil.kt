@@ -6,73 +6,66 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import java.sql.Timestamp
+import java.text.SimpleDateFormat
 
 object FirebaseUtil {
-    private val auth: FirebaseAuth = FirebaseAuth.getInstance()
-    private val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-    private val storage: FirebaseStorage = FirebaseStorage.getInstance()
-
-    fun currentUserEmail(): String? {
-        return auth.currentUser?.email
+    fun currentUserId(): String? {
+        return FirebaseAuth.getInstance().uid
     }
 
-    fun isLoggedIn(): Boolean {
-        return currentUserEmail() != null
-    }
+    val isLoggedIn: Boolean
+        get() = currentUserId() != null
 
     fun currentUserDetails(): DatabaseReference {
-        return database.reference.child("Users").child(currentUserEmail()!!.replace(".", "_")) // Adjusted for Firebase node key constraints
+        return FirebaseDatabase.getInstance().getReference("users").child(currentUserId()!!)
     }
 
     fun allUserDatabaseReference(): DatabaseReference {
-        return database.reference.child("Users")
+        return FirebaseDatabase.getInstance().getReference("users")
     }
 
-    fun getChatroomReference(chatroomId: String): DatabaseReference {
-        return database.reference.child("Chatrooms").child(chatroomId)
+    fun getChatroomReference(chatroomId: String?): DatabaseReference {
+        return FirebaseDatabase.getInstance().getReference("chatrooms").child(chatroomId!!)
     }
 
-    fun getChatroomMessageReference(chatroomId: String): DatabaseReference {
-        return getChatroomReference(chatroomId).child("Chats")
+    fun getChatroomMessageReference(chatroomId: String?): DatabaseReference {
+        return getChatroomReference(chatroomId).child("chats")
     }
 
-    fun getChatroomId(userEmail1: String, userEmail2: String): String {
-        if (userEmail1.hashCode() < userEmail2.hashCode()) {
-            return userEmail1+"_"+userEmail2 // Adjusted for Firebase node key constraints
+    fun getChatroomId(userId1: String, userId2: String): String {
+        return if (userId1.hashCode() < userId2.hashCode()) {
+            userId1 + "_" + userId2
         } else {
-            return userEmail2+"_"+userEmail1 // Adjusted for Firebase node key constraints
+            userId2 + "_" + userId1
         }
     }
 
     fun allChatroomDatabaseReference(): DatabaseReference {
-        return database.reference.child("Chatrooms")
+        return FirebaseDatabase.getInstance().getReference("chatrooms")
     }
 
-    fun getOtherUserFromChatroom(userEmails: List<String>): DatabaseReference {
-        return if (userEmails[0] == currentUserEmail()) {
-            allUserDatabaseReference().child(userEmails[1].replace(".", "_")) // Adjusted for Firebase node key constraints
+    fun getOtherUserFromChatroom(userIds: List<String>): DatabaseReference {
+        return if (userIds[0] == currentUserId()) {
+            allUserDatabaseReference().child(userIds[1])
         } else {
-            allUserDatabaseReference().child(userEmails[0].replace(".", "_")) // Adjusted for Firebase node key constraints
+            allUserDatabaseReference().child(userIds[0])
         }
     }
 
     fun timestampToString(timestamp: Timestamp?): String {
-        // You need to implement this based on your timestamp format
-        // For example:
-        // val dateFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
-        // return dateFormat.format(Date(timestamp))
-        return timestamp.toString()
+        return SimpleDateFormat("HH:MM").format(timestamp)
     }
 
     fun logout() {
-        auth.signOut()
+        FirebaseAuth.getInstance().signOut()
     }
 
-    fun getCurrentProfilePicStorageRef(): StorageReference {
-        return storage.reference.child("profile_pic").child(currentUserEmail()!!.replace(".", "_")) // Adjusted for Firebase node key constraints
-    }
+    val currentProfilePicStorageRef: StorageReference
+        get() = FirebaseStorage.getInstance().reference.child("profile_pic")
+            .child(currentUserId()!!)
 
-    fun getOtherProfilePicStorageRef(otherUserEmail: String): StorageReference {
-        return storage.reference.child("profile_pic").child(otherUserEmail.replace(".", "_")) // Adjusted for Firebase node key constraints
+    fun getOtherProfilePicStorageRef(otherUserId: String?): StorageReference {
+        return FirebaseStorage.getInstance().reference.child("profile_pic")
+            .child(otherUserId!!)
     }
 }
