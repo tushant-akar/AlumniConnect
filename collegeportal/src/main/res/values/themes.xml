@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.AlumniConnect" parent="Theme.Material3.DayNight.NoActionBar">
-        <color name="colorPrimary">#0F9D58</color>
-        <color name="colorPrimaryDark">#056008</color>
-        <color name="colorAccent">#E39D36</color>
+        <item name="colorPrimary">#0F9D58</item>
+        <item name="colorPrimaryDark">#056008</item>
+        <item name="colorAccent">#E39D36</item>
     </style>
 
     <style name="Theme.AlumniConnect" parent="Base.Theme.AlumniConnect" />

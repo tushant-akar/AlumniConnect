@@ -10,12 +10,11 @@ import com.example.collegeportal.data.Users
 import com.google.firebase.auth.FirebaseAuth
 
 class CollegeLoginActivity : AppCompatActivity() {
-    lateinit var etEmail: EditText
+    private lateinit var etEmail: EditText
     private lateinit var etPassword: EditText
-    lateinit var btnLogin: Button
-
-    lateinit var auth: FirebaseAuth
-    lateinit var users: Users
+    private lateinit var btnLogin: Button
+    private lateinit var auth: FirebaseAuth
+    private lateinit var users: Users
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,11 +32,6 @@ class CollegeLoginActivity : AppCompatActivity() {
 
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show()
-                return
-            }
-
-            if (users.isStudent) {
-                Toast.makeText(this, "Please login with valid ID", Toast.LENGTH_SHORT).show()
                 return
             }
 
