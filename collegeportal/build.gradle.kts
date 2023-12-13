@@ -52,10 +52,7 @@ dependencies {
     implementation("com.firebaseui:firebase-ui-database:8.0.0")
 
 
-    //Anko
-    implementation("org.jetbrains.anko:anko:0.10.8")
-    implementation("org.jetbrains.anko:anko-design:0.10.8")
-    implementation("org.jetbrains.anko:anko-coroutines:0.10.8")
+
     implementation("com.google.firebase:firebase-inappmessaging-display:20.4.0")
     implementation("com.google.firebase:firebase-storage:20.3.0")
     implementation("com.google.firebase:firebase-messaging:23.4.0")

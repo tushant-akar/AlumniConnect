@@ -2,20 +2,22 @@ package com.example.studentportal
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.studentportal.alumni.AlumniDashboardActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 import com.example.studentportal.data.Users
+import com.example.studentportal.student.StudentDashboardActivity
 
 class StudentRegistrationActivity : AppCompatActivity() {
     lateinit var etName: EditText
@@ -26,6 +28,7 @@ class StudentRegistrationActivity : AppCompatActivity() {
     private lateinit var btnRegister: Button
     lateinit var tvLogin: TextView
     var isRegistrationValid = true
+    private lateinit var users: Users
 
     private lateinit var auth: FirebaseAuth
     private lateinit var dbRef: DatabaseReference
@@ -47,7 +50,6 @@ class StudentRegistrationActivity : AppCompatActivity() {
 
         btnRegister.setOnClickListener {
             signUpUser()
-            saveData()
         }
 
         tvLogin.setOnClickListener {
@@ -57,7 +59,9 @@ class StudentRegistrationActivity : AppCompatActivity() {
     }
 
     private fun signUpUser() {
+        val name = etName.text.toString()
         val email = etEmail.text.toString()
+        val mobile = etMobile.text.toString()
         val password = etPassword.text.toString()
         val confirmPassword = etConfirmPassword.text.toString()
 
@@ -71,8 +75,14 @@ class StudentRegistrationActivity : AppCompatActivity() {
             return
         }
 
+        // Check if the user has the domain "@iiitvadodara.ac.in"
+        if (!email.endsWith("@iiitvadodara.ac.in")) {
+            Toast.makeText(this, "Please use your college email id", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         // Check if the user already exists
-        checkIfUserExists(email, etMobile.text.toString())
+        checkIfUserExists(email, mobile)
     }
 
     private fun checkIfUserExists(email: String, mobile: String) {
@@ -81,7 +91,7 @@ class StudentRegistrationActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     // Email already exists, registration is not valid
-                    Toast.makeText(this@StudentRegistrationActivity, "Email already registered", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@StudentRegistrationActivity, "User already registered", Toast.LENGTH_SHORT).show()
                     isRegistrationValid = false
                 } else {
                     // Email is not registered, check mobile number
@@ -91,6 +101,7 @@ class StudentRegistrationActivity : AppCompatActivity() {
 
             override fun onCancelled(error: DatabaseError) {
                 // Handle any errors in the database query
+                Log.e("DatabaseError", "Error querying database: ${error.message}")
                 Toast.makeText(this@StudentRegistrationActivity, "Database error", Toast.LENGTH_SHORT).show()
                 isRegistrationValid = false
             }
@@ -111,6 +122,8 @@ class StudentRegistrationActivity : AppCompatActivity() {
                         .addOnCompleteListener(this@StudentRegistrationActivity) { task ->
                             if (task.isSuccessful) {
                                 Toast.makeText(this@StudentRegistrationActivity, "Registration Successful", Toast.LENGTH_SHORT).show()
+                                Log.d("Registration", "Registration Confirmed")
+                                saveData()
                                 finish()
                             } else {
                                 Toast.makeText(this@StudentRegistrationActivity, "Registration Failed", Toast.LENGTH_SHORT).show()
@@ -122,6 +135,7 @@ class StudentRegistrationActivity : AppCompatActivity() {
 
             override fun onCancelled(error: DatabaseError) {
                 // Handle any errors in the database query
+                Log.e("DatabaseError", "Error querying database: ${error.message}")
                 Toast.makeText(this@StudentRegistrationActivity, "Database error", Toast.LENGTH_SHORT).show()
                 isRegistrationValid = false
             }
@@ -133,30 +147,36 @@ class StudentRegistrationActivity : AppCompatActivity() {
         val email = etEmail.text.toString()
         val mobile = etMobile.text.toString()
 
-        if (name.isEmpty()) {
-            etName.error = "Please enter your name"
+        if (name.isEmpty() || email.isEmpty() || mobile.isEmpty()) {
+            Toast.makeText(this, "Please fill in all the fields", Toast.LENGTH_SHORT).show()
             return
         }
-        if(email.isEmpty()) {
-            etEmail.error = "Please enter your email"
-            return
-        }
-        if(mobile.isEmpty()) {
-            etMobile.error = "Please enter your mobile number"
-            return
-        }
+
         if (!isRegistrationValid) {
             return
         }
-        val studentID = dbRef.push().key!!
-        val users = Users(name, email, mobile)
 
-        dbRef.child(studentID).setValue(users)
+        val studentID = dbRef.push().key ?: return
+        val newUsersData = Users(name, email, mobile, isStudent = true, isVerified = false, isAlumni = false)
+
+        dbRef.child(studentID).setValue(newUsersData)
             .addOnCompleteListener {
-                Toast.makeText(this@StudentRegistrationActivity, "Data saved successfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@StudentRegistrationActivity, "Registration Confirmed", Toast.LENGTH_SHORT).show()
+                Log.d("Registration", "Data saved successfully")
+                if (newUsersData.isAlumni) {
+                    // Navigate to Alumni Dashboard
+                    val intent = Intent(this@StudentRegistrationActivity, AlumniDashboardActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    // Navigate to Student Dashboard
+                    val intent = Intent(this@StudentRegistrationActivity, StudentDashboardActivity::class.java)
+                    startActivity(intent)
+                }
+                finish()
             }
             .addOnFailureListener { err ->
                 Toast.makeText(this@StudentRegistrationActivity, "Error saving data: ${err.message}", Toast.LENGTH_SHORT).show()
+                Log.e("RegistrationError", "Error saving data: ${err.message}")
             }
     }
 }
