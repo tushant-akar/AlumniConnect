@@ -78,7 +78,6 @@ class StudentLoginActivity : AppCompatActivity() {
                                 } else {
                                     Intent(this@StudentLoginActivity, StudentDashboardActivity::class.java)
                                 }
-
                                 startActivity(intent)
                                 finish()
                             }
