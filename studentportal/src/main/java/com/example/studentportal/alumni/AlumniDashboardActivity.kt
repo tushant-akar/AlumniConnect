@@ -37,10 +37,6 @@ class AlumniDashboardActivity: AppCompatActivity() {
                     loadFragment(PostFragment())
                     return@setOnNavigationItemSelectedListener true
                 }
-                R.id.messageFragment -> {
-                    loadFragment(MessageFragment())
-                    return@setOnNavigationItemSelectedListener true
-                }
                 R.id.notificationsFragment -> {
                     loadFragment(NotificationsFragment())
                     return@setOnNavigationItemSelectedListener true
