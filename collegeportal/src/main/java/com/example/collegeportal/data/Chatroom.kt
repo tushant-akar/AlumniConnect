@@ -9,3 +9,5 @@ data class Chatroom(
     var lastMessageSenderId: String? = null,
     var lastMessage: String? = null
 )
+
+

@@ -68,7 +68,7 @@ class StudentLoginActivity : AppCompatActivity() {
                         userReference.child(userId).addListenerForSingleValueEvent(object :
                             ValueEventListener {
                             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                                val isAlumni = dataSnapshot.child("isAlumni").getValue(Boolean::class.java) ?: false
+                                val isAlumni = dataSnapshot.child("isAlumni").getValue(Boolean::class.java) ?: true
 
                                 Toast.makeText(this@StudentLoginActivity, "Login Successful", Toast.LENGTH_SHORT).show()
 

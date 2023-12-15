@@ -58,7 +58,7 @@ class RecentChatRecyclerAdapter(
 
                         holder.itemView.setOnClickListener {
                             // Create an instance of the fragment
-                            val fragment = ChatFragment(selectedUser = otherUserModel!!)
+                            val fragment = ChatFragment(selectedUser = otherUserModel)
 
                             // Navigate to the ChatFragment
                             (context as AppCompatActivity).supportFragmentManager.beginTransaction()

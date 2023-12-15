@@ -1,7 +1,6 @@
 package com.example.collegeportal.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,10 +12,6 @@ import com.example.collegeportal.data.ChatMessage
 import com.example.collegeportal.util.FirebaseUtil
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 
 class ChatRecyclerAdapter(options: FirebaseRecyclerOptions<ChatMessage>, private val context: Context) :
     FirebaseRecyclerAdapter<ChatMessage, ChatRecyclerAdapter.ChatModelViewHolder>(options) {

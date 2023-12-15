@@ -7,7 +7,6 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.studentportal.R
 import com.example.studentportal.fragments.ConnectionsFragment
-import com.example.studentportal.fragments.MessageFragment
 import com.example.studentportal.fragments.NotificationsFragment
 import com.example.studentportal.fragments.PostFragment
 import com.example.studentportal.fragments.StudentHomeFragment
@@ -34,10 +33,6 @@ class StudentDashboardActivity: AppCompatActivity() {
                 }
                 R.id.postFragment -> {
                     loadFragment(PostFragment())
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.notificationsFragment -> {
-                    loadFragment(NotificationsFragment())
                     return@setOnNavigationItemSelectedListener true
                 }
                 else -> false

@@ -7,3 +7,5 @@ data class ChatMessage(
     var senderId: String? = null,
     var timestamp: Timestamp? = null
 )
+
+

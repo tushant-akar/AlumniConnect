@@ -65,7 +65,7 @@ class CollegeMessageFragment : Fragment() {
 
     fun navigateToFragment(fragmentManager: FragmentManager, fragment: Fragment, addToBackStack: Boolean = true) {
         val transaction = fragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container, fragment)
+        transaction.replace(R.id.fragment_container_1, fragment)
         if (addToBackStack) {
             transaction.addToBackStack(null)
         }

@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageButton
-import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -41,12 +40,14 @@ class SearchUserFragment : Fragment() {
 
         searchInput.requestFocus()
 
+        setupSearchRecyclerView("Tushant")
+
         backButton.setOnClickListener{
             navigateToFragment(parentFragmentManager, CollegeMessageFragment())
         }
 
         searchButton.setOnClickListener {
-            var searchTerm = searchInput.text.toString()
+            val searchTerm = searchInput.text.toString()
             if (searchTerm.isEmpty()) {
                 searchInput.error = "Please enter name"
             }
@@ -55,7 +56,7 @@ class SearchUserFragment : Fragment() {
         return view
     }
 
-    fun setupSearchRecyclerView(searchTerm: String) {
+    private fun setupSearchRecyclerView(searchTerm: String) {
         val query = FirebaseUtil.allUserDatabaseReference()
             .orderByChild("name")
             .startAt(searchTerm)
@@ -65,7 +66,9 @@ class SearchUserFragment : Fragment() {
             .setQuery(query, Users::class.java)
             .build()
 
+        // Update the adapter reference
         adapter = SearchUserRecyclerAdapter(options, requireContext())
+
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
         adapter.startListening()
@@ -73,29 +76,25 @@ class SearchUserFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        if (adapter != null)
-            adapter.startListening()
+        adapter.startListening()
     }
 
     override fun onStop() {
         super.onStop()
-        if (adapter != null)
-            adapter.stopListening()
+        adapter.stopListening()
     }
 
     override fun onResume() {
         super.onResume()
-        if (adapter != null)
-            adapter.startListening()
+        adapter.startListening()
     }
 
-    fun navigateToFragment(fragmentManager: FragmentManager, fragment: Fragment, addToBackStack: Boolean = true) {
+    private fun navigateToFragment(fragmentManager: FragmentManager, fragment: Fragment, addToBackStack: Boolean = true) {
         val transaction = fragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container, fragment)
+        transaction.replace(R.id.fragment_container_1, fragment)
         if (addToBackStack) {
             transaction.addToBackStack(null)
         }
         transaction.commit()
     }
-
 }

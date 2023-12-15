@@ -78,12 +78,6 @@ class ChatFragment(private val selectedUser: Users = Users()) : Fragment() {
         return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        // Your code for initializing UI components or performing actions after the view is created
-    }
-
     private fun setupChatRecyclerView() {
         val databaseReference = FirebaseDatabase.getInstance().getReference().child("chatMessages").child(chatroomId)
         val query = databaseReference.orderByChild("timestamp")

@@ -2,22 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/studentHomeFragment"
-        android:title=""
+        android:title="Home"
         android:icon="@drawable/ic_home"/>
     <item
         android:id="@+id/connectionsFragment"
-        android:title=""
+        android:title="My Network"
         android:icon="@drawable/ic_network"/>
     <item
         android:id="@+id/postFragment"
-        android:title=""
+        android:title="Posts"
         android:icon="@drawable/ic_post"/>
     <item
-        android:id="@+id/notificationsFragment"
-        android:title=""
-        android:icon="@drawable/ic_notifications"/>
-    <item
         android:id="@+id/paymentFragment"
-        android:title=""
+        android:title="Alumni Fund"
         android:icon="@drawable/ic_payment"/>
 </menu>

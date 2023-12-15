@@ -157,7 +157,7 @@ class StudentRegistrationActivity : AppCompatActivity() {
         }
 
         val studentID = dbRef.push().key ?: return
-        val newUsersData = Users(name, email, mobile, isStudent = true, isVerified = false, isAlumni = false)
+        val newUsersData = Users(name, email, mobile, isStudent = true, isVerified = false, isAlumni = true)
 
         dbRef.child(studentID).setValue(newUsersData)
             .addOnCompleteListener {
