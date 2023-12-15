@@ -7,7 +7,6 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.studentportal.R
 import com.example.studentportal.fragments.ConnectionsFragment
-import com.example.studentportal.fragments.NotificationsFragment
 import com.example.studentportal.fragments.PostFragment
 import com.example.studentportal.fragments.StudentHomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
